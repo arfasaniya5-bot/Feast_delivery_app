@@ -1,20 +1,70 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://ai.google.dev/static/site-assets/images/share-ais-513315318.png" />
-</div>
+# Feast Delivery App
 
-# Run and deploy your AI Studio app
+This repository contains the full-stack food delivery app with a Vite + React frontend and Express backend.
 
-This contains everything you need to run your app locally.
+## What is included
 
-View your app in AI Studio: https://ai.studio/apps/1b02d714-1dad-4724-9928-06f828bf6d4a
+- `src/` — React frontend components and state management
+- `server.ts` — Express backend with authentication, food list, cart, and orders APIs
+- `vite.config.ts` — Vite configuration for development and build
+- `tsconfig.json` — TypeScript settings for the app
+- `.env.example` — environment variable template for local run
+
+## Prerequisites
+
+- Node.js installed (tested with Node 20.x)
+- `npm` available in your shell
+
+## Setup
+
+1. Open the project folder:
+   ```bash
+   cd C:\Users\arfas\Downloads\food-delivery-app
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Create a local environment file:
+   ```bash
+   copy .env.example .env
+   ```
+4. Set your secrets in `.env`:
+   - `JWT_SECRET` — any secure secret string
+   - `STRIPE_SECRET_KEY` — Stripe API key for payments
+   - `GEMINI_API_KEY` and `APP_URL` are optional for AI Studio/cloud integration
 
 ## Run Locally
 
-**Prerequisites:**  Node.js
+Start the app in development mode:
 
+```bash
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Then open:
+
+- `http://localhost:3000`
+
+## Build and Run Production Locally
+
+To build the frontend and backend for production:
+
+```bash
+npm run build
+npm run start
+```
+
+## Useful commands
+
+- Install dependencies: `npm install`
+- Start dev server: `npm run dev`
+- Build production assets: `npm run build`
+- Run production server: `npm run start`
+- TypeScript check: `npm run lint`
+
+## Notes
+
+- The backend serves built frontend files from `dist/` in production.
+- `.env` is excluded from git; use `.env.example` as a template.
+- If `npx` is unavailable in your shell, use the provided npm scripts instead.
