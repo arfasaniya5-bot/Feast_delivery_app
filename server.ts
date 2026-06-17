@@ -35,19 +35,19 @@ app.use(express.json({ limit: "50mb" }));
 function seedAccounts() {
   const users = dbUsers.list();
   
-  const existingAdmin = dbUsers.getByEmail("admin@feast.com");
+  const existingAdmin = dbUsers.getByEmail("arfasaniya5@gmail.com");
   if (!existingAdmin) {
     const salt = bcrypt.genSaltSync(10);
     const passwordHash = bcrypt.hashSync("adminpassword", salt);
     dbUsers.add({
       id: "user_admin",
       name: "Grand Chef Admin",
-      email: "admin@feast.com",
+      email: "arfasaniya5@gmail.com",
       passwordHash,
       cartData: {},
       isAdmin: true
     });
-    console.log("Seeded Admin Account: admin@feast.com / adminpassword");
+    console.log("Seeded Admin Account: arfasaniya5@gmail.com / adminpassword");
   }
 
   const existingCustomer = dbUsers.getByEmail("customer@feast.com");
@@ -104,12 +104,13 @@ const authMiddleware = (req: AuthenticatedRequest, res: Response, next: NextFunc
 // Register
 app.post("/api/user/register", (req: Request, res: Response) => {
   try {
-    const { name, email, password, isAdmin } = req.body;
+    const { name, email, password } = req.body;
     if (!name || !email || !password) {
       return res.status(400).json({ success: false, message: "Missing required fields: Name, Email, Password" });
     }
 
-    const existingUser = dbUsers.getByEmail(email);
+    const normalizedEmail = email.trim().toLowerCase();
+    const existingUser = dbUsers.getByEmail(normalizedEmail);
     if (existingUser) {
       return res.status(400).json({ success: false, message: "An account with that email already exists." });
     }
@@ -120,10 +121,10 @@ app.post("/api/user/register", (req: Request, res: Response) => {
     const newUser: User = {
       id: "user_" + Date.now().toString(36),
       name,
-      email,
+      email: normalizedEmail,
       passwordHash,
       cartData: {},
-      isAdmin: !!isAdmin
+      isAdmin: normalizedEmail === "arfasaniya5@gmail.com"
     };
 
     dbUsers.add(newUser);

@@ -45,7 +45,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const handleQuickLogin = async (role: "customer" | "admin") => {
     setIsSubmitting(true);
     try {
-      const demoEmail = role === "admin" ? "admin@feast.com" : "customer@feast.com";
+      const demoEmail = role === "admin" ? "arfasaniya5@gmail.com" : "customer@feast.com";
       const demoPass = role === "admin" ? "adminpassword" : "customerpassword";
       
       const res = await login(demoEmail, demoPass);
@@ -160,21 +160,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
               </div>
             </div>
 
-            {!isLoginView && (
-              <div className="flex items-center gap-2 mt-2 pl-1">
-                <input
-                  type="checkbox"
-                  id="admin-checkbox"
-                  checked={isAdmin}
-                  onChange={(e) => setIsAdmin(e.target.checked)}
-                  className="w-4 h-4 text-rose-600 border-gray-300 rounded focus:ring-rose-500"
-                />
-                <label htmlFor="admin-checkbox" className="text-xs text-gray-600 font-medium flex items-center gap-1 cursor-pointer">
-                  <ChefHat className="w-3.5 h-3.5 text-rose-500" />
-                  Grant Chef Admin Privileges
-                </label>
-              </div>
-            )}
 
             <button
               type="submit"
