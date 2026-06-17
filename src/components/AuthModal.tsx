@@ -14,7 +14,6 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isAdmin, setIsAdmin] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
 
@@ -33,7 +32,7 @@ export default function AuthModal({ isOpen, onClose }: AuthModalProps) {
         const res = await login(email, password);
         if (res.success) onClose();
       } else {
-        const res = await register(name, email, password, isAdmin);
+        const res = await register(name, email, password);
         if (res.success) onClose();
       }
     } finally {

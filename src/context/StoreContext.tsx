@@ -23,7 +23,7 @@ interface StoreContextType {
   getCartTotal: () => number;
   getCartCount: () => number;
   login: (email: string, password: string) => Promise<{ success: boolean; message: string }>;
-  register: (name: string, email: string, password: string, isAdmin?: boolean) => Promise<{ success: boolean; message: string }>;
+  register: (name: string, email: string, password: string) => Promise<{ success: boolean; message: string }>;
   logout: () => void;
   placeOrder: (address: OrderAddress) => Promise<{ success: boolean; session_url?: string; isMock?: boolean; message?: string }>;
   fetchUserOrders: () => Promise<void>;
@@ -262,12 +262,12 @@ export const StoreProvider = ({ children }: { children: ReactNode }) => {
   };
 
   // Register
-  const register = async (name: string, email: string, password: string, isAdmin: boolean = false) => {
+  const register = async (name: string, email: string, password: string) => {
     try {
       const res = await fetch("/api/user/register", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ name, email, password, isAdmin }),
+        body: JSON.stringify({ name, email, password }),
       });
       const data = await res.json();
       if (data.success) {
