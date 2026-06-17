@@ -1,0 +1,30 @@
+[
+  {
+    "id": "order_mqhnzx94",
+    "userId": "user_customer",
+    "items": [
+      {
+        "foodId": "food_2",
+        "name": "Double Cheeseburger",
+        "price": 12.49,
+        "quantity": 1,
+        "image": "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&q=80&w=600"
+      }
+    ],
+    "amount": 14.49,
+    "address": {
+      "firstName": "Happy",
+      "lastName": "Foodie",
+      "email": "customer@feast.com",
+      "street": "df",
+      "city": "ss",
+      "state": "sss",
+      "country": "India",
+      "zipCode": "523240",
+      "phone": "9392789645"
+    },
+    "status": "Food Processing",
+    "payment": true,
+    "createdAt": "2026-06-17T06:03:03.064Z"
+  }
+]

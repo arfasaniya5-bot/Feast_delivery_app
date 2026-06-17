@@ -1,0 +1,26 @@
+[
+  {
+    "id": "user_admin",
+    "name": "Grand Chef Admin",
+    "email": "admin@feast.com",
+    "passwordHash": "$2b$10$8zxsSunsZb1YxQILY0y8guFkxLKIFMMP7YNi7P/M0radE.TBnAAdy",
+    "cartData": {},
+    "isAdmin": true
+  },
+  {
+    "id": "user_customer",
+    "name": "Happy Foodie",
+    "email": "customer@feast.com",
+    "passwordHash": "$2b$10$4lm.g2Xn770UwS7wTkNZvO/FcSChdagC41vbFESOv5/tvxG4eZVK6",
+    "cartData": {},
+    "isAdmin": false
+  },
+  {
+    "id": "user_mqhnqjs1",
+    "name": "Arfa Saniya",
+    "email": "arfasaniya5@gmail.com",
+    "passwordHash": "$2b$10$0hFZtbhZ841ZWNMGvZ..BurXjlBJAgFKhINeYT0bi2dPU.7gj8v6u",
+    "cartData": {},
+    "isAdmin": true
+  }
+]
